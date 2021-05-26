@@ -1,14 +1,19 @@
 {
-    "name": "rorecek/laravel-ulid",
+    "name": "kebook.programacao.1/laravel-ulid",
     "description": "Laravel package for ULID (Universally Unique Lexicographically Sortable Identifier)",
     "keywords": ["ulid", "uuid", "identifier", "guid"],
-    "homepage": "https://github.com/rorecek/laravel-ulid",
+    "homepage": "https://github.com/kebook-programacao-1/laravel-ulid",
     "license": "MIT",
     "authors": [
         {
             "name": "Pavel Rorecek",
             "email": "info@laravelist.com",
             "homepage": "https://laravelist.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Willian de Souza",
+            "email":"kebook.programacao.1@gmail.com",
             "role": "Developer"
         }
     ],
