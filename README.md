@@ -78,7 +78,7 @@ $table->char('id', 26)->primary();
 
 ``` php
 Schema::create('items', function (Blueprint $table) {
-  $table->char('id', 26)->primary();
+  $table->char('table_id_name', 26)->primary();
   ....
   ....
   $table->timestamps();
@@ -89,7 +89,7 @@ If the related model is using an ULID, the column type should reflect that also.
 
 ``` php
 Schema::create('items', function (Blueprint $table) {
-  $table->char('id', 26)->primary();
+  $table->char('table_id_name', 26)->primary();
   ....
   // related model that uses ULID
   $table->char('category_id', 26);
@@ -110,6 +110,8 @@ use Rorecek\Ulid\HasUlid;
 class Item extends Model
 {
   use HasUlid;
+
+  protected $ulid = "same_name_on_migration_here";
 }
 ```
 

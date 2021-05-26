@@ -6,15 +6,27 @@ trait HasUlid
     protected static function bootHasUlid()
     {
         static::creating(function ($model) {
-            if (! $model->id) {
-                $model->id = \Ulid::generate();
+            $modelUlid = null;
+
+            if(isset($model->ulid)) {
+                $modelUlid = $model->ulid;
+            }
+
+            if (!$model->$modelUlid) {
+                $model->$modelUlid = \Ulid::generate();
             }
         });
 
         static::saving(function ($model) {
-            $originalUlid = $model->getOriginal('id');
-            if ($originalUlid !== $model->id) {
-                $model->id = $originalUlid;
+            $modelUlid = null;
+
+            if(isset($model->ulid)) {
+                $modelUlid = $model->ulid;
+            }
+
+            $originalUlid = $model->getOriginal($modelUlid);
+            if ($originalUlid !== $model->$modelUlid) {
+                $model->$modelUlid = $originalUlid;
             }
         });
     }
